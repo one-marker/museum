@@ -47,15 +47,16 @@ class _TabContainerBottomState extends State<TabContainerBottom> {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text('Музей войск связи'),
+                label: 'Музей войск связи',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.report_problem),
-                title: Text('Музей Михайолова'),
+                  label:  'Музей Михайолова',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
-                title: Text('Фильмы'),
+                // ignore: deprecated_member_use
+                  label: 'Фильмы',
               ),
             ]),
         backgroundColor: Theme.of(context).primaryColor,

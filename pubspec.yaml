@@ -23,8 +23,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  chewie: ^0.12.2
-  video_player: ^1.0.1
+  chewie: ^1.0.0
+  # play videos
+  video_player: ^2.2.4
+
+  # pick video from file system
+  file_picker: ^4.4.0
+
+  # prevent screen from sleeping
+  wakelock: ^0.4.0
+
+  # switch orientation
+  auto_orientation: ^2.2.1
+
+  # listen to orientation
+  native_device_orientation: ^1.0.0
 
 
 
@@ -35,6 +48,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -50,8 +64,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/sample.json
-    - assets/img/test1.jpg
+    - assets/signal/sample.json
+    - assets/signal/img/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -48,7 +48,7 @@ class _TabContainerDefaultState extends State<TabContainerDefault> {
               ),
             ],
           ),
-          backgroundColor: Color.fromRGBO(33, 33, 33, 0),//Theme.of(context).primaryColorDark,
+          backgroundColor: Colors.black12,//Theme.of(context).primaryColorDark,
           //primaryColor,
         ),
       ),

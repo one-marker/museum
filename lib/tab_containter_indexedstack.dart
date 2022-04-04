@@ -45,15 +45,15 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text('Tab1'),
+                label: 'Tab1',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.report_problem),
-                title: Text('Tab2'),
+                label: 'Tab2',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
-                title: Text('Tab3'),
+                label: 'Tab3',
               ),
             ]),
         backgroundColor: Theme.of(context).primaryColor,

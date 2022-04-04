@@ -1,6 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:museum/video_items.dart';
+import 'package:museum/my_tabs.dart';
+//import 'package:museum/video_items.dart';
+import 'package:museum/widget/orientation/portrait_landscape_player_page.dart';
 import 'package:video_player/video_player.dart';
+
+import 'package:museum/app_colors.dart' as AppColors;
 
 class Tab3 extends StatefulWidget {
   @override
@@ -19,48 +24,108 @@ class _Tab3State extends State<Tab3> with AutomaticKeepAliveClientMixin<Tab3> {
     print('build Tab3');
     return Scaffold(
       backgroundColor: Colors.blueGrey[100],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Flutter Video Player Demo'),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: Text('Flutter Video Player Demo'),
+      //   centerTitle: true,
+      // ),
       body: ListView(
+         padding: const EdgeInsets.all(8),
         children: <Widget>[
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: Text("", style: new TextStyle(
+                    fontSize: 28.0,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w800),
+                ),)
+            ],
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+            ),
+            padding: const EdgeInsets.all(48),
+            child: GestureDetector(
+              child: Text(
+                "Фильм 1",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Avenir"),
+              ),
 
-              'assets/screen.mp4',
+              //Image.asset('assets/signal/img/1.jpg', fit: BoxFit.fitHeight),
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PortraitLandscapePlayerPage()),
+                );
+              },
             ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+            ),
+            padding: const EdgeInsets.all(48),
+            child: GestureDetector(
+              child: Text(
+                "Фильм 2",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Avenir"),
+              ),
 
-            looping: false,
-            autoplay: false,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.network(
-                'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
+              //Image.asset('assets/signal/img/1.jpg', fit: BoxFit.fitHeight),
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PortraitLandscapePlayerPage()),
+                );
+              },
             ),
-            looping: false,
-            autoplay: true,
           ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              'assets/video_3.mp4',
-            ),
-            looping: false,
-            autoplay: false,
+          SizedBox(
+            height: 10,
           ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              'assets/video_2.mp4',
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
             ),
-            autoplay: true,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.network(
-                "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+            padding: const EdgeInsets.all(48),
+            child: GestureDetector(
+              child: Text(
+                "Фильм 3",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Avenir"),
+              ),
+
+              //Image.asset('assets/signal/img/1.jpg', fit: BoxFit.fitHeight),
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PortraitLandscapePlayerPage()),
+                );
+              },
             ),
-            looping: true,
-            autoplay: false,
           ),
         ],
       ),

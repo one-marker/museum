@@ -1,56 +1,89 @@
-import 'package:flutter/material.dart';
-import 'package:museum/video_items.dart';
-import 'package:video_player/video_player.dart';
-
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Flutter Video Player Demo'),
-        centerTitle: true,
-      ),
-      body: ListView(
-        children: <Widget>[
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              'assets/video_6.mp4',
-            ),
-            looping: true,
-            autoplay: true,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.network(
-                'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4'
-            ),
-            looping: false,
-            autoplay: true,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              'assets/video_3.mp4',
-            ),
-            looping: false,
-            autoplay: false,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.asset(
-              'assets/video_2.mp4',
-            ),
-            autoplay: true,
-          ),
-          VideoItems(
-            videoPlayerController: VideoPlayerController.network(
-                "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-            ),
-            looping: true,
-            autoplay: false,
-          ),
-        ],
-      ),
-    );
-  }
-}
+// import 'package:flutter/material.dart';
+// import 'package:museum/page/basics_page.dart';
+// import 'package:museum/page/orientation_page.dart';
+// import 'package:museum/page/basics_page.dart';
+// import 'package:museum/page/orientation_page.dart';
+//
+// import 'widget/orientation/landscape_player_page.dart';
+// import 'widget/orientation/portrait_landscape_player_page.dart';
+//
+// final urlLandscapeVideo =
+//     'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4';
+// final urlPortraitVideo =
+//     'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4';
+// final urlYoutubeVideo = 'https://youtube.com/watch?v=HSAa9yi0OMA';
+//
+// void main() => runApp(MyApp());
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) => MaterialApp(
+//     debugShowCheckedModeBanner: false,
+//     title: 'Video Player',
+//     theme: ThemeData(
+//       primaryColor: Colors.blueAccent,
+//       scaffoldBackgroundColor: Colors.black,
+//       visualDensity: VisualDensity.adaptivePlatformDensity,
+//       colorScheme: ColorScheme.dark(),
+//     ),
+//     home: MainPage(),
+//   );
+// }
+//
+// class MainPage extends StatefulWidget {
+//   @override
+//   _MainPageState createState() => _MainPageState();
+// }
+//
+// class _MainPageState extends State<MainPage> {
+//   int index = 0;
+//
+//   @override
+//   Widget build(BuildContext context) => Scaffold(
+//     bottomNavigationBar: buildBottomBar(),
+//     body:
+//     GestureDetector(
+//       child: Image.asset('assets/1.jpg',
+//           fit: BoxFit.fitHeight),
+//       onTap: () async {
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context) => PortraitLandscapePlayerPage()),
+//         );
+//       },
+//     ),
+//   );
+//
+//   Widget buildBottomBar() {
+//     final style = TextStyle(color: Colors.white);
+//
+//     return BottomNavigationBar(
+//       backgroundColor: Theme.of(context).primaryColor,
+//       selectedItemColor: Colors.white,
+//       unselectedItemColor: Colors.white70,
+//       currentIndex: index,
+//       items: [
+//         BottomNavigationBarItem(
+//           icon: Text('VideoPlayer', style: style),
+//           title: Text('Basics'),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: Text('VideoPlayer', style: style),
+//           title: Text('Orientation'),
+//         ),
+//       ],
+//       onTap: (int index) => setState(() => this.index = index),
+//     );
+//   }
+//
+//   Widget buildPages() {
+//     switch (index) {
+//       case 0:
+//         return BasicsPage();
+//       case 1:
+//         return OrientationPage();
+//       default:
+//         return Container();
+//     }
+//   }
+// }
