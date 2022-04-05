@@ -186,6 +186,14 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                         "Обобщающее название рода специальных войск Вооружённых сил Российской Федерации, который раздельно существует во всех трёх видах вооружённых сил.",
                         style: TextStyle(color: Colors.black, fontSize: 12),
                         textAlign: TextAlign.left),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text("Экспонаты >", style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
+                        textAlign: TextAlign.left),
                   ],
                 ),
               ),
@@ -233,6 +241,14 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     Text(
                         "Советский и российский военачальник. Главнокомандующий Военно-воздушными силами Российской Федерации. Герой Российской Федерации, генерал армии, Заслуженный военный лётчик СССР.",
                         style: TextStyle(color: Colors.black, fontSize: 12),
+                        textAlign: TextAlign.left),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text("Экспонаты >", style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
                         textAlign: TextAlign.left),
                   ],
                 ),
