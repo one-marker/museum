@@ -129,7 +129,9 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
     List<Widget> list = new List<Widget>();
     for (var i = 0; i < _items.length; i++) {
       list.add(
-        Card(child:
+        Container(
+
+            child:
           GestureDetector(
               onTap: () async {
                 Navigator.push(
