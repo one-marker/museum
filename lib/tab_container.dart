@@ -26,7 +26,7 @@ class _TabContainerState extends State<TabContainer> {
     super.initState();
 
     originalList = [
-      Tab1(),
+      Tab1(null),
       Tab2(),
       Tab3(),
     ];

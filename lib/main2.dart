@@ -82,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
+              childAspectRatio: 0.8,
               children: <Widget>[
                 Container(
                   padding: const EdgeInsets.all(8),

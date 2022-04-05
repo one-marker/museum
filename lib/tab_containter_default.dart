@@ -17,7 +17,7 @@ class _TabContainerDefaultState extends State<TabContainerDefault> {
   void initState() {
     super.initState();
     listScreens = [
-      Tab1(),
+      Tab1(null),
       Tab2(),
       Tab3(),
     ];

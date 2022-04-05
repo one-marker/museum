@@ -18,7 +18,7 @@ class _TabContainerBottomState extends State<TabContainerBottom> {
   void initState() {
     super.initState();
     listScreens = [
-      Tab1(),
+      Tab1(null),
       Tab2(),
       Tab3(),
     ];

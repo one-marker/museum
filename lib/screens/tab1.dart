@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,13 +9,22 @@ import '../main2.dart';
 import '../app_colors.dart' as AppColors;
 
 class Tab1 extends StatefulWidget {
+  PageController _pageController;
+
+  Tab1(PageController pageController) {
+    _pageController = pageController;
+  }
   @override
-  _Tab1State createState() => _Tab1State();
+  _Tab1State createState() => _Tab1State(_pageController);
 }
 
 class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
   List _items = [];
+  PageController _pageController;
 
+  _Tab1State(PageController pageController) {
+    _pageController = pageController;
+  }
   // @override
   // void initState() {
   //   super.initState();
@@ -53,43 +63,121 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
   // List<Widget> getList() {
   //   List<Widget> list = new List<Widget>();
   //   for (var i = 0; i < _items.length; i++) {
-  //     list.add(Container(
-  //      // padding: const EdgeInsets.all(2),
+  //     list.add(Card(color: Colors.white70, child: GestureDetector(
   //
-  //       color: Colors.white,
+  //       // padding: const EdgeInsets.all(2),
+  //       onTap: () async {
+  //         Navigator.push(
+  //           context,
+  //           MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
+  //         );
+  //       },
+  //       // color: Colors.white,
   //       child :Column(
   //
-  //         children: [GestureDetector(
+  //         children: [
+  //           Image.asset('assets/signal/img/' + _items[i]["id"], fit: BoxFit.fitHeight,),
+  //           Row(mainAxisAlignment: MainAxisAlignment.start,
+  //           children: [ Flexible(
+  //             child: Container(
+  //               padding: const EdgeInsets.all(14),
+  //               child: Text(_items[i]["name"],
+  //                   softWrap: true,
+  //                   overflow: TextOverflow.ellipsis,
+  //                   //textAlign: TextAlign.left,
+  //                   style: new TextStyle(
+  //                       fontSize: 16.0,
+  //                       color: Colors.black87,
+  //                       fontWeight: FontWeight.w800)
+  //              // buildCardTitle(_items[i]["name"].toString(),14)
   //
-  //           child: Image.asset('assets/signal/img/' + _items[i]["id"],
-  //               fit: BoxFit.fitHeight),
   //
-  //           onTap: () async {
-  //             Navigator.push(
-  //               context,
-  //               MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
-  //             );
-  //           },
-  //         ), Text("asdasd",
-  //           //textAlign: TextAlign.left,
-  //           style: new TextStyle(
-  //           fontSize: 16.0,
-  //           color: Colors.black87,
-  //         ), )],
+  //           )))],),
+  //
+  //         ],
   //       ),
   //
   //       // color: Colors.white,
-  //     ));
+  //     ),));
   //   }
   //   //}
   //   return list;
   // }
 
 
+  Widget buildCardTitle(String text, int short) {
+    int min = text.length;
+    String end = "..";
+    if (min <= short) {
+      short = min;
+      end = "";
+    }
+
+    return Text(text.substring(0, short) + end,
+        softWrap: true,
+        overflow: TextOverflow.fade,
+        //textAlign: TextAlign.left,
+        style: new TextStyle(
+        fontSize: 16.0,
+        color: Colors.black87,
+        fontWeight: FontWeight.w800)
+    );
+  }
+
+
   List<Widget> getList() {
     List<Widget> list = new List<Widget>();
     for (var i = 0; i < _items.length; i++) {
-      list.add(Container(
+      list.add(
+        Card(child:
+          GestureDetector(
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
+                );
+              },
+            child:
+          GridTile(
+
+            key: ValueKey(_items[i]["id"]),
+            child:
+            Stack(
+                children: [
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+
+              child:
+              Image.asset('assets/signal/img/' + _items[i]["id"],
+              fit: BoxFit.fitWidth,
+
+            ))]),
+            footer: GridTileBar(
+
+              backgroundColor: Colors.white,
+              title: Text(
+                _items[i]["name"],
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+               subtitle:
+               Text(
+                 _items[i]["description"],
+                 style: const TextStyle(
+                     color: Colors.black,
+                     fontSize: 12,
+                     fontWeight: FontWeight.normal),
+               ),
+              // trailing: const Icon(Icons.shopping_cart),
+            ),
+          )))
+
+
+  /*        Container(
         padding: const EdgeInsets.all(2),
         child: GestureDetector(
           child: Image.asset('assets/signal/img/' + _items[i]["id"],
@@ -103,7 +191,9 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
           },
         ),
         color: Colors.white,
-      ));
+      )
+      */
+      );
     }
     //}
     return list;
@@ -113,6 +203,7 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
   Widget build(BuildContext context) {
     // print(_items[0]["id"]);
     return Scaffold(
+        backgroundColor: Colors.blueGrey[100],
         // appBar: AppBar(
         //   title: Text('Музей связи'),
         //     actions: [
@@ -140,7 +231,8 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
               child: Text("Музей войск связи", style: new TextStyle(
                   fontSize: 28.0,
                   color: Colors.black87,
-                  fontWeight: FontWeight.w800),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Avenir"),
               ),)
         ],
       ),
@@ -150,6 +242,7 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
           SliverPadding(
             padding: const EdgeInsets.all(20),
             sliver: SliverGrid.count(
+              childAspectRatio: 0.89,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
@@ -207,7 +300,8 @@ class SecondRoute extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: AppColors.audioBluishBackground,
+     // backgroundColor: AppColors.audioBluishBackground,
+      backgroundColor: Colors.blueGrey[100],
       body: Stack(
         children: [
           Positioned(
@@ -218,7 +312,7 @@ class SecondRoute extends StatelessWidget {
               child: GestureDetector(
                 child: Image.asset(
                   img,
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.fitHeight,
                 ),
                 // onTap: () async {
                 //   Navigator.push(
@@ -228,22 +322,32 @@ class SecondRoute extends StatelessWidget {
                 // },
               )),
           Positioned(
-              top: 0,
-              left: 0,
+              top: 15,
+              left: 15,
               right: 0,
               child: AppBar(
-                leading: IconButton(
+                leading: Container(
+
+                    decoration: ShapeDecoration(
+
+                      color: Colors.white,
+                      shape: CircleBorder(),
+                    ),
+
+                    child:IconButton(
+
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.black87,
+                    color: Colors.black,
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();
                     //advancedPlayer.stop();
                   },
-                ),
+                )),
                 actions: [
                   IconButton(
+
                     icon: Icon(
                       Icons.search,
                     ),
@@ -252,11 +356,14 @@ class SecondRoute extends StatelessWidget {
                 ],
                 backgroundColor: Colors.transparent,
                 elevation: 0.0,
+
+
+
               )),
           Positioned(
               left: 0,
               right: 0,
-              top: screenHeight * 0.40,
+              top: screenHeight * 0.45,
               height: screenHeight * 0.86,
               child: Container(
                   decoration: BoxDecoration(
@@ -265,9 +372,12 @@ class SecondRoute extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: screenHeight * 0.1,
-                      ),
+                      // SizedBox(
+                      //   height: screenHeight * 0.1,
+                      // ),
+                    SizedBox(
+                       height:40,
+                     ),
                       Text(
                         this.name,
 
@@ -282,7 +392,7 @@ class SecondRoute extends StatelessWidget {
                       new Expanded(
                           flex: 1,
                           child: new SingleChildScrollView(
-                            padding: const EdgeInsets.all(25.0),
+                            padding: const EdgeInsets.all(44.0),
                             scrollDirection: Axis.vertical, //.horizontal
                             child: new Text(
                               description,

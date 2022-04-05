@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:museum/main.dart';
+import 'package:museum/mainold.dart';
 import 'package:museum/main3.dart';
 import 'package:museum/widget/orientation/video_player_fullscreen_widget.dart';
 import 'package:video_player/video_player.dart';

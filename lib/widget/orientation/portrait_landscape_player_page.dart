@@ -1,7 +1,7 @@
 import 'package:auto_orientation/auto_orientation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:museum/main.dart';
+import 'package:museum/mainold.dart';
 import 'package:museum/widget/orientation/video_player_both_widget.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';

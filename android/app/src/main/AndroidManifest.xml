@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.vuc.museum">
    <application
-        android:label="museum"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Музей"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

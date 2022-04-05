@@ -19,7 +19,7 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
   void initState() {
     super.initState();
     listScreens = [
-      Tab1(),
+      Tab1(null),
       Tab2(),
       Tab3(),
     ];

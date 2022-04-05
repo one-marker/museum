@@ -3,7 +3,7 @@ import 'package:museum/main3.dart';
 import 'package:museum/widget/video_player_widget.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../main.dart';
+import '../../mainold.dart';
 import '../other/floating_action_button_widget.dart';
 import '../other/textfield_widget.dart';
 
