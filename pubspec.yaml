@@ -74,6 +74,12 @@ flutter:
     - assets/
     - assets/signal/sample.json
     - assets/signal/img/
+    - assets/plane/sample.json
+    - assets/plane/img/
+    - assets/movies/
+    - assets/movies/mihamovie.mp4
+    - assets/movies/plane.mp4
+    - assets/movies/signal.mp4
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

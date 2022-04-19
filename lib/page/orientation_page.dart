@@ -60,5 +60,5 @@ class OrientationPage extends StatelessWidget {
 
   void goToPortraitAndLandscape(BuildContext context) =>
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PortraitLandscapePlayerPage()));
+          builder: (context) => PortraitLandscapePlayerPage("")));
 }

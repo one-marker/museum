@@ -7,16 +7,27 @@ import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
 class PortraitLandscapePlayerPage extends StatefulWidget {
+  // final asset = 'assets/movies/mihamovie.mp4';
+  var asset;
+  PortraitLandscapePlayerPage(String asset) {
+    this.asset = asset;
+  }
   @override
   _PortraitLandscapePlayerPageState createState() =>
-      _PortraitLandscapePlayerPageState();
+      _PortraitLandscapePlayerPageState(asset);
+
+
 }
 
 class _PortraitLandscapePlayerPageState
     extends State<PortraitLandscapePlayerPage> {
   VideoPlayerController controller;
 
-  final asset = 'assets/video.mp4';
+  // final asset = 'assets/movies/mihamovie.mp4';
+  var asset;
+  _PortraitLandscapePlayerPageState(String asset) {
+    this.asset = asset;
+  }
   @override
   void initState() {
     super.initState();

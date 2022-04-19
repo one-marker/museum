@@ -27,7 +27,7 @@ class _TabContainerState extends State<TabContainer> {
 
     originalList = [
       Tab1(null),
-      Tab2(),
+      Tab2(null),
       Tab3(),
     ];
     originalDic = {0: true, 1: false, 2: false};

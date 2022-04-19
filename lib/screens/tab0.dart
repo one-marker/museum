@@ -189,11 +189,18 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("Экспонаты >", style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12),
-                        textAlign: TextAlign.left),
+                    GestureDetector(
+                        onTap: () async {
+                          _pageController.animateToPage(1,
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.bounceOut);
+                        },
+                        child: Text("Экспонаты >",
+                            style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                            textAlign: TextAlign.left)),
                   ],
                 ),
               ),
@@ -202,7 +209,6 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                 child: Image.asset('assets/home/popov_img.webp',
                     fit: BoxFit.fitWidth),
               ),
-
             ],
           )),
       GestureDetector(
@@ -212,15 +218,12 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
           },
           child: Row(
             children: <Widget>[
-
               Expanded(
                 flex: 4,
-
-                  child: Image.asset('assets/home/airplane.png',
-                      fit: BoxFit.scaleDown),
-
-
-              ),   Expanded(
+                child: Image.asset('assets/home/airplane.png',
+                    fit: BoxFit.scaleDown),
+              ),
+              Expanded(
                 flex: 4,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -245,11 +248,18 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("Экспонаты >", style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12),
-                        textAlign: TextAlign.left),
+                    GestureDetector(
+                        onTap: () async {
+                          _pageController.animateToPage(2,
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.bounceOut);
+                        },
+                        child: Text("Экспонаты >",
+                            style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                            textAlign: TextAlign.left)),
                   ],
                 ),
               ),
@@ -289,7 +299,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
               SliverPadding(
                 padding: const EdgeInsets.all(22),
                 sliver: SliverGrid.count(
-                  childAspectRatio: 2.1,
+                  childAspectRatio: 1.8,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   crossAxisCount: 1,

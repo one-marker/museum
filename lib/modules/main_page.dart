@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
           children: <Widget>[
             Tab0(_pageController),
             Tab1(_pageController),
-            Tab2(),
+            Tab2(_pageController),
             Tab3(),
             Container(color: Colors.indigo,),
           ],

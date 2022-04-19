@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:museum/screens/item.dart';
 
 import '../main2.dart';
 import '../app_colors.dart' as AppColors;
@@ -25,21 +26,7 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
   _Tab1State(PageController pageController) {
     _pageController = pageController;
   }
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   print('initState Tab1');
-  // }
 
-  // Future<void> readJson() async {
-  //   final String response = await rootBundle.loadString('assets/sample.json');
-  //   final data = await json.decode(response);
-  //   print(data["items"][0]["id"]);
-  //   setState(() {
-  //     _items = data["items"];
-  //     print(_items[0]["id"]);
-  //   });
-  // }
 
   List data;
 
@@ -130,13 +117,14 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
     for (var i = 0; i < _items.length; i++) {
       list.add(
         Container(
-
+            // color: Colors.white,
             child:
           GestureDetector(
+
               onTap: () async {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
+                  MaterialPageRoute(builder: (context) => ItemScreen(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
                 );
               },
             child:
@@ -262,190 +250,190 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
   bool get wantKeepAlive => true;
 }
 
-class ImageDialog extends StatelessWidget {
-  String description;
+// class ImageDialog extends StatelessWidget {
+//   String description;
+//
+//   ImageDialog(String description) {
+//     this.description = description;
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Dialog(
+//       child: Container(
+//         padding: const EdgeInsets.all(20),
+//         width: 200,
+//         height: 200,
+//         decoration: BoxDecoration(
+//             image: DecorationImage(
+//                 image: ExactAssetImage('assets/tamas.jpg'), fit: BoxFit.cover)),
+//         child: Text(this.description),
+//       ),
+//     );
+//   }
+// }
 
-  ImageDialog(String description) {
-    this.description = description;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        width: 200,
-        height: 200,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: ExactAssetImage('assets/tamas.jpg'), fit: BoxFit.cover)),
-        child: Text(this.description),
-      ),
-    );
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-
-  String img;
-  String name;
-
-  String description;
-  SecondRoute(String name, String img, String description) {
-    this.img = img;
-    this.name = name;
-    this.description = description;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-     // backgroundColor: AppColors.audioBluishBackground,
-      backgroundColor: Colors.blueGrey[100],
-      body: Stack(
-        children: [
-          Positioned(
-              top: screenHeight*0.01,
-              left: 0,
-              right: 0,
-              height: screenHeight / 2,
-              child: GestureDetector(
-                child: Image.asset(
-                  img,
-                  fit: BoxFit.fitHeight,
-                ),
-                // onTap: () async {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(builder: (context) => SecondRoute()),
-                //   );
-                // },
-              )),
-          Positioned(
-              top: 15,
-              left: 15,
-              right: 0,
-              child: AppBar(
-                leading: Container(
-
-                    decoration: ShapeDecoration(
-
-                      color: Colors.white,
-                      shape: CircleBorder(),
-                    ),
-
-                    child:IconButton(
-
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    //advancedPlayer.stop();
-                  },
-                )),
-                actions: [
-                  IconButton(
-
-                    icon: Icon(
-                      Icons.search,
-                    ),
-                    onPressed: () {},
-                  )
-                ],
-                backgroundColor: Colors.transparent,
-                elevation: 0.0,
-
-
-
-              )),
-          Positioned(
-              left: 0,
-              right: 0,
-              top: screenHeight * 0.45,
-              height: screenHeight * 0.86,
-              child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    children: [
-                      // SizedBox(
-                      //   height: screenHeight * 0.1,
-                      // ),
-                    SizedBox(
-                       height:40,
-                     ),
-                      Text(
-                        this.name,
-
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Avenir"),
-                      ),
-
-                      new Expanded(
-                          flex: 1,
-                          child: new SingleChildScrollView(
-                            padding: const EdgeInsets.all(44.0),
-                            scrollDirection: Axis.vertical, //.horizontal
-                            child: new Text(
-                              description,
-                              style: new TextStyle(
-                                fontSize: 16.0,
-                                color: Colors.black87,
-                              ),
-                            ),
-                          ))
-                      //AudioFile(advancedPlayer:advancedPlayer, audioPath:this.widget.booksData[this.widget.index]["audio"]),
-                    ],
-                  ))),
-          // Positioned(
-          //     top:screenHeight*0.12,
-          //     left: (screenWidth-300)/2,
-          //     right: (screenWidth-300)/2,
-          //     height: screenHeight*0.36,
-          //     child: Container(
-          //
-          //       child: Padding(
-          //         padding: const EdgeInsets.all(20),
-          //         child: Container(
-          //           decoration: BoxDecoration(
-          //             //borderRadius: BorderRadius.circular(20),
-          //
-          //               border: Border.all(color:Colors.white, width: 5),
-          //               image:DecorationImage(
-          //                   image:AssetImage('assets/signal/img/1.jpg'),
-          //                   fit:BoxFit.cover
-          //               )
-          //           ),
-          //         ),
-          //       ),
-          //     )
-          //
-          // )
-        ],
-      ),
-    );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: const Text('Second Route'),
-    //   ),
-    //   body: Center(
-    //     child: ElevatedButton(
-    //       onPressed: () {
-    //         Navigator.pop(context);
-    //       },
-    //       child: const Text('Go back!'),
-    //     ),
-    //   ),
-    // );
-  }
-}
+// class SecondRoute extends StatelessWidget {
+//
+//   String img;
+//   String name;
+//
+//   String description;
+//   SecondRoute(String name, String img, String description) {
+//     this.img = img;
+//     this.name = name;
+//     this.description = description;
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final double screenHeight = MediaQuery.of(context).size.height;
+//     final double screenWidth = MediaQuery.of(context).size.width;
+//     return Scaffold(
+//      // backgroundColor: AppColors.audioBluishBackground,
+//       backgroundColor: Colors.blueGrey[100],
+//       body: Stack(
+//         children: [
+//           Positioned(
+//               top: screenHeight*0.01,
+//               left: 0,
+//               right: 0,
+//               height: screenHeight / 2,
+//               child: GestureDetector(
+//                 child: Image.asset(
+//                   img,
+//                   fit: BoxFit.fitHeight,
+//                 ),
+//                 // onTap: () async {
+//                 //   Navigator.push(
+//                 //     context,
+//                 //     MaterialPageRoute(builder: (context) => SecondRoute()),
+//                 //   );
+//                 // },
+//               )),
+//           Positioned(
+//               top: 15,
+//               left: 15,
+//               right: 0,
+//               child: AppBar(
+//                 leading: Container(
+//
+//                     decoration: ShapeDecoration(
+//
+//                       color: Colors.white,
+//                       shape: CircleBorder(),
+//                     ),
+//
+//                     child:IconButton(
+//
+//                   icon: Icon(
+//                     Icons.arrow_back_ios,
+//                     color: Colors.black,
+//                   ),
+//                   onPressed: () {
+//                     Navigator.of(context).pop();
+//                     //advancedPlayer.stop();
+//                   },
+//                 )),
+//                 actions: [
+//                   IconButton(
+//
+//                     icon: Icon(
+//                       Icons.search,
+//                     ),
+//                     onPressed: () {},
+//                   )
+//                 ],
+//                 backgroundColor: Colors.transparent,
+//                 elevation: 0.0,
+//
+//
+//
+//               )),
+//           Positioned(
+//               left: 0,
+//               right: 0,
+//               top: screenHeight * 0.45,
+//               height: screenHeight * 0.86,
+//               child: Container(
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(40),
+//                     color: Colors.white,
+//                   ),
+//                   child: Column(
+//                     children: [
+//                       // SizedBox(
+//                       //   height: screenHeight * 0.1,
+//                       // ),
+//                     SizedBox(
+//                        height:40,
+//                      ),
+//                       Text(
+//                         this.name,
+//
+//                         textAlign: TextAlign.center,
+//                         style: TextStyle(
+//
+//                             fontSize: 30,
+//                             fontWeight: FontWeight.bold,
+//                             fontFamily: "Avenir"),
+//                       ),
+//
+//                       new Expanded(
+//                           flex: 1,
+//                           child: new SingleChildScrollView(
+//                             padding: const EdgeInsets.all(44.0),
+//                             scrollDirection: Axis.vertical, //.horizontal
+//                             child: new Text(
+//                               description,
+//                               style: new TextStyle(
+//                                 fontSize: 16.0,
+//                                 color: Colors.black87,
+//                               ),
+//                             ),
+//                           ))
+//                       //AudioFile(advancedPlayer:advancedPlayer, audioPath:this.widget.booksData[this.widget.index]["audio"]),
+//                     ],
+//                   ))),
+//           // Positioned(
+//           //     top:screenHeight*0.12,
+//           //     left: (screenWidth-300)/2,
+//           //     right: (screenWidth-300)/2,
+//           //     height: screenHeight*0.36,
+//           //     child: Container(
+//           //
+//           //       child: Padding(
+//           //         padding: const EdgeInsets.all(20),
+//           //         child: Container(
+//           //           decoration: BoxDecoration(
+//           //             //borderRadius: BorderRadius.circular(20),
+//           //
+//           //               border: Border.all(color:Colors.white, width: 5),
+//           //               image:DecorationImage(
+//           //                   image:AssetImage('assets/signal/img/1.jpg'),
+//           //                   fit:BoxFit.cover
+//           //               )
+//           //           ),
+//           //         ),
+//           //       ),
+//           //     )
+//           //
+//           // )
+//         ],
+//       ),
+//     );
+//     // return Scaffold(
+//     //   appBar: AppBar(
+//     //     title: const Text('Second Route'),
+//     //   ),
+//     //   body: Center(
+//     //     child: ElevatedButton(
+//     //       onPressed: () {
+//     //         Navigator.pop(context);
+//     //       },
+//     //       child: const Text('Go back!'),
+//     //     ),
+//     //   ),
+//     // );
+//   }
+// }
