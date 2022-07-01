@@ -237,7 +237,7 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
                                       child: Center(child: Container(
                                   decoration: BoxDecoration(
                                   image: DecorationImage(
-                                  image: AssetImage(setImage(i)),fit: isVertical() == true ? BoxFit.fitWidth : BoxFit.fitHeight
+                                  image: AssetImage(setImage(i)),fit: isVertical() == true ? BoxFit.fitHeight : BoxFit.fitHeight
                                   )
                                   ),)),
                                     ),

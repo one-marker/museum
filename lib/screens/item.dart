@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ItemScreen extends StatelessWidget {
-
   String img;
   String name;
 
   String description;
+
   ItemScreen(String name, String img, String description) {
     this.img = img;
     this.name = name;
@@ -23,7 +23,7 @@ class ItemScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              top: screenHeight*0.01,
+              top: screenHeight * 0.01,
               left: 0,
               right: 0,
               height: screenHeight / 2,
@@ -44,45 +44,43 @@ class ItemScreen extends StatelessWidget {
               left: 15,
               right: 0,
               child: Row(
-                children: [ Container(
-
-
-
-                    child:
-                    TextButton.icon(
-
+                children: [
+                  Container(
+                    child: TextButton.icon(
                       style: TextButton.styleFrom(
-
                         backgroundColor: Color.fromRGBO(250, 0, 0, 50),
-                        shape:RoundedRectangleBorder(
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(48.0),
                         ),
                       ),
-                      onPressed: () => {
-                      Navigator.of(context).pop()
-                      },
-                      icon: Icon(Icons.menu, color: Colors.white,),
-                      label: Text('все экспонаты',style: TextStyle(color: Colors.white, fontWeight:FontWeight.w900),),
+                      onPressed: () => {Navigator.of(context).pop()},
+                      icon: Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'все экспонаты',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w900),
+                      ),
                     ),
-
-
-                )],
+                  )
+                ],
 
                 // backgroundColor: Colors.transparent,
                 // elevation: 0.0,
 
-                  // IconButton(
-                  //
-                  //   icon: Icon(
-                  //     Icons.arrow_back_ios,
-                  //     color: Colors.black,
-                  //   ),
-                  //   onPressed: () {
-                  //     Navigator.of(context).pop();
-                  //     //advancedPlayer.stop();
-                  //   },
-                  // )),
-
+                // IconButton(
+                //
+                //   icon: Icon(
+                //     Icons.arrow_back_ios,
+                //     color: Colors.black,
+                //   ),
+                //   onPressed: () {
+                //     Navigator.of(context).pop();
+                //     //advancedPlayer.stop();
+                //   },
+                // )),
               )),
           Positioned(
               left: 0,
@@ -100,39 +98,58 @@ class ItemScreen extends StatelessWidget {
                       //   height: screenHeight * 0.1,
                       // ),
                       SizedBox(
-                        height:40,
+                        height: 40,
                       ),
-                      Text(
-                        this.name,
-
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Avenir"),
+                      Container(
+                        padding: const EdgeInsets.only(right: 20, left: 20),
+                        child: Text(
+                          this.name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Avenir"),
+                        ),
                       ),
 
-                      new Expanded(
-                          flex: 1,
-                          child: new SingleChildScrollView(
-                            padding: const EdgeInsets.all(44.0),
-                            scrollDirection: Axis.vertical, //.horizontal
-                            child: new Text(
+                      Container(
+                        height: screenHeight * 0.35,
+                        // padding: const EdgeInsets.all(10),
+                        // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                        child: SingleChildScrollView(
+                          padding: const EdgeInsets.all(40.0),
+                          scrollDirection: Axis.vertical,
+                          child: Center(
+                            child: Text(
                               description,
-                              style: new TextStyle(
-                                fontSize: 16.0,
+                              style: const TextStyle(
+                                fontSize: 16,
                                 color: Colors.black87,
                               ),
                             ),
-                          ))
+                          ),
+                        ),
+                      )
+                      // new Expanded(
+                      //     flex: 1,
+                      //     child: new SingleChildScrollView(
+                      //       padding: const EdgeInsets.all(50.0),
+                      //       scrollDirection: Axis.vertical, //.horizontal
+                      //       child: new Text(
+                      //         description,
+                      //         style: new TextStyle(
+                      //           fontSize: 16.0,
+                      //           color: Colors.black87,
+                      //
+                      //
+                      //         ),
+                      //       ),
+                      //     ))
                       //AudioFile(advancedPlayer:advancedPlayer, audioPath:this.widget.booksData[this.widget.index]["audio"]),
                     ],
                   ))),
-
         ],
       ),
     );
-
   }
 }
