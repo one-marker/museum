@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:museum/screens/tab1.dart';
 
-import 'screens/tab1.dart';
+import 'screens/tab_exhibits_1.dart';
 import 'screens/tab2.dart';
 import 'screens/tab3.dart';
 

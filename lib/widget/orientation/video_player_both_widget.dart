@@ -46,10 +46,10 @@ class _VideoPlayerBothWidgetState extends State<VideoPlayerBothWidget> {
   void setOrientation(bool isPortrait) {
     if (isPortrait) {
       Wakelock.disable();
-      SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+      // SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     } else {
       Wakelock.enable();
-      SystemChrome.setEnabledSystemUIOverlays([]);
+      // SystemChrome.setEnabledSystemUIOverlays([]);
     }
   }
 

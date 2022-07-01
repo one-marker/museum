@@ -54,7 +54,7 @@ class _PortraitLandscapePlayerPageState
               Icons.arrow_back_ios,
             ),
             onPressed: () {
-              AutoOrientation.portraitUpMode();
+              // AutoOrientation.portraitUpMode();
              // controller.
              // if (isPortrait) {
                 //Wakelock.disable();

@@ -128,11 +128,18 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
     List<Widget> list = new List<Widget>();
 
     return [
+    Container(
+        color: Colors.white24,
+      padding: const EdgeInsets.all(20),
+      child:
       Row(
+
         children: <Widget>[
           Expanded(
             flex: 4,
+
             child: Column(
+
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -156,17 +163,21 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
             ),
           ),
         ],
-      ),
+      )),
+
       GestureDetector(
+
           onTap: () async {
             _pageController.animateToPage(1,
                 duration: Duration(milliseconds: 200), curve: Curves.bounceOut);
           },
           child: Row(
+
             children: <Widget>[
               Expanded(
                 flex: 4,
                 child: Column(
+
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -184,7 +195,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     ),
                     Text(
                         "Обобщающее название рода специальных войск Вооружённых сил Российской Федерации, который раздельно существует во всех трёх видах вооружённых сил.",
-                        style: TextStyle(color: Colors.black, fontSize: 12),
+                        style: TextStyle(color: Colors.black, fontSize: 11),
                         textAlign: TextAlign.left),
                     SizedBox(
                       height: 10,
@@ -195,7 +206,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                               duration: Duration(milliseconds: 200),
                               curve: Curves.bounceOut);
                         },
-                        child: Text("Экспонаты >",
+                        child: Text("Показать ",
                             style: TextStyle(
                                 color: Colors.blueAccent,
                                 fontWeight: FontWeight.bold,
@@ -243,7 +254,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     ),
                     Text(
                         "Советский и российский военачальник. Главнокомандующий Военно-воздушными силами Российской Федерации. Герой Российской Федерации, генерал армии, Заслуженный военный лётчик СССР.",
-                        style: TextStyle(color: Colors.black, fontSize: 12),
+                        style: TextStyle(color: Colors.black, fontSize: 11),
                         textAlign: TextAlign.left),
                     SizedBox(
                       height: 10,
@@ -254,7 +265,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                               duration: Duration(milliseconds: 200),
                               curve: Curves.bounceOut);
                         },
-                        child: Text("Экспонаты >",
+                        child: Text("Показать",
                             style: TextStyle(
                                 color: Colors.blueAccent,
                                 fontWeight: FontWeight.bold,
@@ -286,7 +297,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                   style: new TextStyle(
                       fontSize: 28.0,
                       color: Colors.black87,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
                       fontFamily: "Avenir"),
                 ),
               )

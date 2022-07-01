@@ -43,31 +43,45 @@ class ItemScreen extends StatelessWidget {
               top: 15,
               left: 15,
               right: 0,
-              child: AppBar(
-                leading: Container(
+              child: Row(
+                children: [ Container(
 
-                    decoration: ShapeDecoration(
 
-                      color: Colors.white70,
-                      shape: CircleBorder(),
+
+                    child:
+                    TextButton.icon(
+
+                      style: TextButton.styleFrom(
+
+                        backgroundColor: Color.fromRGBO(250, 0, 0, 50),
+                        shape:RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(48.0),
+                        ),
+                      ),
+                      onPressed: () => {
+                      Navigator.of(context).pop()
+                      },
+                      icon: Icon(Icons.menu, color: Colors.white,),
+                      label: Text('все экспонаты',style: TextStyle(color: Colors.white, fontWeight:FontWeight.w900),),
                     ),
 
-                    child:IconButton(
 
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                        //advancedPlayer.stop();
-                      },
-                    )),
+                )],
 
-                backgroundColor: Colors.transparent,
-                elevation: 0.0,
+                // backgroundColor: Colors.transparent,
+                // elevation: 0.0,
 
-
+                  // IconButton(
+                  //
+                  //   icon: Icon(
+                  //     Icons.arrow_back_ios,
+                  //     color: Colors.black,
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.of(context).pop();
+                  //     //advancedPlayer.stop();
+                  //   },
+                  // )),
 
               )),
           Positioned(
