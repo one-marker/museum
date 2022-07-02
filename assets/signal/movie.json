@@ -19,27 +19,6 @@
       "name": "Книга \"История академии (1832-2004) в лицах\"",
       "movie": "assets/movies/signal.mp4",
       "color": "0XFF717a46"
-    },
-    {
-      "id": "img-plane-tablet.png",
-      "phone": "img-plane-phone.jpg",
-      "tablet": "img-plane-tablet.png",
-      "background": "bg-plane-tablet.jpg",
-      "description": "Книга посвящена истории Общевойсковой академии Вооруженных Сил Российской Федерации с 1832 по 2004 гг. Она разработана на основе архивных документов и материалов, многие из которых публикуются впервые.\r\nГод: 2004",
-      "name": "Книга \"История академии (1832-2004) в лицах\"",
-      "movie": "assets/movies/signal.mp4",
-      "color": "0XFF717a46"
-    },
-    {
-      "id": "img-miha-tablet.png",
-      "phone": "img-miha-phone.jpg",
-      "tablet": "img-miha-tablet.png",
-      "background": "bg-miha-tablet.jpg",
-      "description": "Книга посвящена истории Общевойсковой академии Вооруженных Сил Российской Федерации с 1832 по 2004 гг. Она разработана на основе архивных документов и материалов, многие из которых публикуются впервые.\r\nГод: 2004",
-      "name": "Книга \"История академии (1832-2004) в лицах\"",
-      "movie": "assets/movies/signal.mp4",
-      "color": "0XFF717a46"
     }
-
     ]
 }

@@ -293,7 +293,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
               Container(
                 margin: const EdgeInsets.only(left: 20),
                 child: Text(
-                  "Главная",
+                  "Музей ВУЦ при РТУ МИРЭА",
                   style: new TextStyle(
                       fontSize: 28.0,
                       color: Colors.black87,

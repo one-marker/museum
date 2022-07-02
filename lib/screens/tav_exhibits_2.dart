@@ -159,6 +159,27 @@ class _Tab2ExhibitsState extends State<Tab2Exhibits> with AutomaticKeepAliveClie
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 20),
+                child: TextButton.icon(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(250, 0, 0, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(48.0),
+                    ),
+                  ),
+                  onPressed: () => {Navigator.of(context).pop()},
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    'вернуться',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w900),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
                 child: Text("Музей Михайлова", style: new TextStyle(
                     fontSize: 28.0,
                     color: Colors.black87,
@@ -178,7 +199,7 @@ class _Tab2ExhibitsState extends State<Tab2Exhibits> with AutomaticKeepAliveClie
                   childAspectRatio: 0.89,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  crossAxisCount: 2,
+                  crossAxisCount: 3,
                   children: getList(),
 
                 ),

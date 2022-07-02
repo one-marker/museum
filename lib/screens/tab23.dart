@@ -4,28 +4,28 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:museum/screens/tab_exhibits_1.dart';
-import 'package:museum/widget/orientation/portrait_landscape_player_page.dart';
+import 'package:museum/screens/item.dart';
 
+import 'package:museum/screens/tav_exhibits_2.dart';
+import 'package:museum/widget/orientation/portrait_landscape_player_page.dart';
 import '../main2.dart';
 import '../app_colors.dart' as AppColors;
 
-class Tab1 extends StatefulWidget {
+class Tab2 extends StatefulWidget {
   PageController _pageController;
 
-  Tab1(PageController pageController) {
+  Tab2(PageController pageController) {
     _pageController = pageController;
   }
-
   @override
-  _Tab1State createState() => _Tab1State(_pageController);
+  _Tab2State createState() => _Tab2State(_pageController);
 }
 
-class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
+class _Tab2State extends State<Tab2> with AutomaticKeepAliveClientMixin<Tab2> {
 
   PageController _pageController;
 
-  _Tab1State(PageController pageController) {
+  _Tab2State(PageController pageController) {
     _pageController = pageController;
   }
 
@@ -55,7 +55,9 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
 
 
 
-
+  _Tab1State(PageController pageController) {
+    _pageController = pageController;
+  }
 
   // Future<void> readJson() async {
   //   final String response = await rootBundle.loadString('assets/sample.json');
@@ -72,7 +74,7 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
 
   Future<String> loadJsonData() async {
     final String response =
-    await rootBundle.loadString('assets/signal/movie.json');
+    await rootBundle.loadString('assets/plane/movie.json');
     final data = await json.decode(response);
     print(data["items"][0]["id"]);
     setState(() {
@@ -122,7 +124,7 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
               Container(
                 margin: const EdgeInsets.only(left: 20),
                 child: Text(
-                  "Музей войск связи",
+                  "Музей Михайлова",
                   style: new TextStyle(
                       fontSize: 28.0,
                       color: Colors.black87,
@@ -193,7 +195,6 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
                           left: -40,
                           right: -30,
                           child: Container(
-
                             height: screenHeight,
                             child: PageView.builder(
                                 controller:
@@ -201,7 +202,6 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
                                 itemCount: _items == null ? 0 : _items.length,
                                 itemBuilder: (_, i) {
                                   return GestureDetector(
-
                                     onTap: () async {
                                       if (i != 0) {
                                         Navigator.push(
@@ -214,7 +214,7 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Tab1Exhibits(null)),
+                                              builder: (context) => Tab2Exhibits(null)),
                                         );
                                       }
                                     },
@@ -224,22 +224,12 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
                                       margin: const EdgeInsets.only(right: 10),
                                       // margin: const EdgeInsets.only(right: 10),
                                       decoration: BoxDecoration(
-
-                                        color: Color(int.parse(_items[i]["color"])),
                                           borderRadius:
                                           BorderRadius.circular(10),
-
                                           image: DecorationImage(
-                                            image: AssetImage(setBg(i)),
-                                            // ignore: unrelated_type_equality_checks
-                                            fit: isVertical() == true ? BoxFit.fitWidth : BoxFit.fill ,
+                                            image: AssetImage(changeImg(i)),
+                                            fit: BoxFit.fitWidth,
                                           )),
-                                      child: Center(child: Container(
-                                  decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                  image: AssetImage(setImage(i)),fit: isVertical() == true ? BoxFit.cover : BoxFit.fitHeight
-                                  )
-                                  ),)),
                                     ),
                                   );
                                 }),
@@ -297,46 +287,190 @@ class _Tab1State extends State<Tab1> with SingleTickerProviderStateMixin<Tab1> {
 
         ]));
   }
-
-  bool isVertical() {
-    if (MediaQuery
-        .of(context)
-        .size
-        .width > MediaQuery
-        .of(context)
-        .size
-        .height) {
-      return false;
-    }
-    return true;
-  }
-
-  String setImage(int i) {
-    if (isVertical()) {
-      return "assets/signal/img/" + _items[i]["phone"];
-    }
-    else {
-      return "assets/signal/img/" + _items[i]["tablet"];
-    }
-  }
-
-  String setBg(int i) {
-    if (isVertical()) {
-      return "assets/signal/img/" + _items[i]["phone"];
-    }
-    else {
-      return "assets/signal/img/" + _items[i]["background"];
-    }
-  }
-
   String changeImg(int i) {
-    if (isVertical()) {
-      return "assets/signal/img/" + _items[i]["phone"];
-    }
-    else {
-      return "assets/signal/img/" + _items[i]["background"];
-    }
+    return "assets/signal/img/" +
+        _items[i]["id"];
+    // if(MediaQuery.of(context).size.width>MediaQuery.of(context).size.height) {
+    //   print("change");
+    //   return "assets/signal/img/"+ "1.jpg";
+    // } else {
+    //   return "assets/signal/img/" +
+    //       _items[i]["id"];
+    // }
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+  /*
+  List _items = [];
+  PageController _pageController;
+
+  _Tab2State(PageController pageController) {
+    _pageController = pageController;
+  }
+
+  List data;
+
+  Future<String> loadJsonData() async {
+    final String response =
+    await rootBundle.loadString('assets/plane/sample.json');
+    final data = await json.decode(response);
+    print(data["items"][0]["id"]);
+    setState(() {
+      _items = data["items"];
+      print(_items[0]["id"]);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.loadJsonData();
   }
 
 
+
+
+  Widget buildCardTitle(String text, int short) {
+    int min = text.length;
+    String end = "..";
+    if (min <= short) {
+      short = min;
+      end = "";
+    }
+
+    return Text(text.substring(0, short) + end,
+        softWrap: true,
+        overflow: TextOverflow.fade,
+        //textAlign: TextAlign.left,
+        style: new TextStyle(
+            fontSize: 16.0,
+            color: Colors.black87,
+            fontWeight: FontWeight.w800)
+    );
+  }
+
+
+  List<Widget> getList() {
+    List<Widget> list = new List<Widget>();
+    for (var i = 0; i < _items.length; i++) {
+      list.add(
+          Container(
+
+              color: Colors.white,
+              child:
+              GestureDetector(
+
+                  onTap: () async {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ItemScreen(_items[i]["name"], 'assets/plane/img/' + _items[i]["id"], _items[i]["description"])),
+                    );
+                  },
+                  child:
+                  GridTile(
+                    key: ValueKey(_items[i]["id"]),
+                    child:
+                    Stack(
+                        children: [
+                          Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+
+                              child:
+                              Image.asset('assets/plane/img/' + _items[i]["id"],
+                                fit: BoxFit.fitHeight,
+
+                              ))]),
+                    footer: GridTileBar(
+
+                      backgroundColor: Colors.white,
+                      title: Text(
+                        _items[i]["name"],
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      subtitle:
+                      Text(
+                        _items[i]["description"],
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      // trailing: const Icon(Icons.shopping_cart),
+                    ),
+                  )))
+
+
+        /*        Container(
+        padding: const EdgeInsets.all(2),
+        child: GestureDetector(
+          child: Image.asset('assets/signal/img/' + _items[i]["id"],
+              fit: BoxFit.fitHeight),
+
+          onTap: () async {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
+            );
+          },
+        ),
+        color: Colors.white,
+      )
+      */
+      );
+    }
+    //}
+    return list;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // print(_items[0]["id"]);
+
+    return Scaffold(
+        backgroundColor: Colors.blueGrey[100],
+
+        body: Column(children: [
+          SizedBox(height: 30,),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: Text("Музей Михайлова", style: new TextStyle(
+                    fontSize: 28.0,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w900,
+                    fontFamily: "Avenir"),
+                ),)
+            ],
+          ),
+          Expanded(child: CustomScrollView(
+            primary: false,
+            slivers: <Widget>[
+              SliverPadding(
+
+                padding: const EdgeInsets.all(20),
+                sliver: SliverGrid.count(
+
+                  childAspectRatio: 0.89,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  children: getList(),
+
+                ),
+              ),
+            ],
+          )),
+        ]));
+  }
+
+  @override
+  bool get wantKeepAlive => true;*/
 }
+

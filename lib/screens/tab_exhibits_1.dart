@@ -166,24 +166,6 @@ class _Tab1ExhibitsState extends State<Tab1Exhibits> with AutomaticKeepAliveClie
               // trailing: const Icon(Icons.shopping_cart),
             ),
           )))
-
-
-  /*        Container(
-        padding: const EdgeInsets.all(2),
-        child: GestureDetector(
-          child: Image.asset('assets/signal/img/' + _items[i]["id"],
-              fit: BoxFit.fitHeight),
-
-          onTap: () async {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute(_items[i]["name"], 'assets/signal/img/' + _items[i]["id"], _items[i]["description"])),
-            );
-          },
-        ),
-        color: Colors.white,
-      )
-      */
       );
     }
     //}
@@ -195,36 +177,40 @@ class _Tab1ExhibitsState extends State<Tab1Exhibits> with AutomaticKeepAliveClie
     // print(_items[0]["id"]);
     return Scaffold(
         backgroundColor: Colors.blueGrey[100],
-        // appBar: AppBar(
-        //   title: Text('Музей связи'),
-        //     actions: [
-        //       PopupMenuButton(
-        //           itemBuilder: (context) => [
-        //             PopupMenuItem(
-        //               child: Text("Фильм 1"),
-        //               value: 1,
-        //             ),
-        //             PopupMenuItem(
-        //               child: Text("Фильм 2"),
-        //               value: 2,
-        //             )
-        //           ]
-        //       )
-        //     ]
-        // ),
-
         body: Column(children: [
           SizedBox(height: 35,),
       Row(
         children: [
           Container(
-              margin: const EdgeInsets.only(left: 20),
-              child: Text("Экспонаты", style: new TextStyle(
+            margin: const EdgeInsets.only(left: 20),
+            child: TextButton.icon(
+              style: TextButton.styleFrom(
+                backgroundColor: Color.fromRGBO(250, 0, 0, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(48.0),
+                ),
+              ),
+              onPressed: () => {Navigator.of(context).pop()},
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              label: Text(
+                'вернуться',
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w900),
+              ),
+            ),
+          ),
+          Container(
+              margin: const EdgeInsets.only(left: 10),
+              child: Text("Музей войск связи", style: new TextStyle(
                   fontSize: 25.0,
                   color: Colors.black87,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Avenir"),
-              ),)
+              ),
+          )
         ],
       ),
           Expanded(child: CustomScrollView(
@@ -236,7 +222,7 @@ class _Tab1ExhibitsState extends State<Tab1Exhibits> with AutomaticKeepAliveClie
               childAspectRatio: 0.89,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              crossAxisCount: 2,
+              crossAxisCount: 3,
               children: getList(),
 
 
