@@ -1,4 +1,4 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:museum/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:museum/screens/tab0.dart';
@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final inactiveColor = Colors.grey;
-    final activeColor = Colors.green;
+    final activeColor = Colors.red;
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
@@ -67,19 +67,19 @@ class _MainPageState extends State<MainPage> {
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
               title: Text('Главная'),
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.museum),
               textAlign: TextAlign.center,
               inactiveColor: inactiveColor,
               activeColor: activeColor),
           BottomNavyBarItem(
-              title: Text('М. Связи'),
+              title: Text('Музей войск связи '),
               icon: Icon(Icons.radio),
               textAlign: TextAlign.center,
               inactiveColor: inactiveColor,
               activeColor: activeColor),
           BottomNavyBarItem(
-              title: Text('Михайлов'),
-              icon: Icon(Icons.assignment_ind),
+              title: Text('Музей Михайлова В.С.'),
+              icon: Icon(Icons.airplanemode_active),
               textAlign: TextAlign.center,
               inactiveColor: inactiveColor,
               activeColor: activeColor),

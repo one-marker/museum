@@ -207,7 +207,7 @@ class _Tab1ExhibitsState extends State<Tab1Exhibits> with AutomaticKeepAliveClie
               child: Text("Музей войск связи", style: new TextStyle(
                   fontSize: 25.0,
                   color: Colors.black87,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                   fontFamily: "Avenir"),
               ),
           )

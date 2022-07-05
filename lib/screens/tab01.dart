@@ -166,7 +166,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
       //   )),
       Container(
 
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.all(80),
           // onTap: () async {
           //   _pageController.animateToPage(1,
           //       duration: Duration(milliseconds: 200), curve: Curves.bounceOut);
@@ -184,53 +184,54 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                         curve: Curves.bounceOut);
                   },
                   child: Container(
-                    child: Image.asset('assets/home/logo-museum.png',
-                        fit: BoxFit.fitWidth),
-                  )),
+
+
+
+                        child: Image.asset('assets/home/logo-museum.png',
+                            fit: BoxFit.fitWidth),
+                      )),
+
             ],
           )),
       Container(
-
-          //height: MediaQuery.of(context).size.height - 250,
-          margin: const EdgeInsets.only(top: 0, left: 90, right: 90),
-          padding: const EdgeInsets.only(top: 0, left: 90, right: 90),
+          height: MediaQuery.of(context).size.height - 250,
+          padding: const EdgeInsets.all(80),
           // onTap: () async {
           //   _pageController.animateToPage(1,
           //       duration: Duration(milliseconds: 200), curve: Curves.bounceOut);
           // },
 
           child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Expanded(
-                  flex: 4,
+              GestureDetector(
+                  onTap: () async {
+                    _pageController.animateToPage(1,
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.bounceOut);
+                  },
                   child: Container(
-                    margin: const EdgeInsets.all(20),
-                    // color: Colors.white70,
-                    child: GestureDetector(
-                        onTap: () async {
-                          _pageController.animateToPage(1,
-                              duration: Duration(milliseconds: 200),
-                              curve: Curves.bounceOut);
-                        },
+                      color: Colors.white,
+                      child: Expanded(
+                        flex: 1,
                         child: Image.asset('assets/home/home-signal-icon.png',
-                            fit: BoxFit.scaleDown)),
-                  )),
-              Expanded(
-
-                flex: 4,
-                child: Container(
-                  margin: const EdgeInsets.all(20),
-                  // color: Colors.white70,
-                  child: GestureDetector(
-
-                    onTap: () async {
-                      _pageController.animateToPage(2,
-                          duration: Duration(milliseconds: 200),
-                          curve: Curves.bounceOut);
-                    },
-                    child: Image.asset('assets/home/home-plane-icon.png',
-                        fit: BoxFit.scaleDown)),
-              )),
+                            fit: BoxFit.fitWidth),
+                      ))),
+              GestureDetector(
+                  onTap: () async {
+                    _pageController.animateToPage(2,
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.bounceOut);
+                  },
+                  child: Container(
+                      color: Colors.white,
+                      child: Expanded(
+                        flex: 1,
+                        child: Image.asset('assets/home/home-plane-icon.png',
+                            fit: BoxFit.fitWidth),
+                      ))),
             ],
           )),
       GestureDetector(
@@ -239,50 +240,47 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                 duration: Duration(milliseconds: 200), curve: Curves.bounceOut);
           },
           child: Row(
-
             children: <Widget>[
               Expanded(
-                  flex: 4,
-                  child: Container(
-                    padding: EdgeInsets.only(left: 20, right: 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Музей войск связи",
-                          style: new TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.black87,
-                              fontWeight: FontWeight.w900,
-                              fontFamily: "Avenir"),
-                          textAlign: TextAlign.left,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                            "Обобщающее название рода специальных войск Вооружённых сил Российской Федерации, который раздельно существует во всех трёх видах вооружённых сил.",
-                            style: TextStyle(color: Colors.black, fontSize: 11),
-                            textAlign: TextAlign.left),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        GestureDetector(
-                            onTap: () async {
-                              _pageController.animateToPage(1,
-                                  duration: Duration(milliseconds: 200),
-                                  curve: Curves.bounceOut);
-                            },
-                            child: Text("Показать ",
-                                style: TextStyle(
-                                    color: Colors.blueAccent,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12),
-                                textAlign: TextAlign.left)),
-                      ],
+                flex: 4,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Музей войск связи",
+                      style: new TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: "Avenir"),
+                      textAlign: TextAlign.left,
                     ),
-                  )),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                        "Обобщающее название рода специальных войск Вооружённых сил Российской Федерации, который раздельно существует во всех трёх видах вооружённых сил.",
+                        style: TextStyle(color: Colors.black, fontSize: 11),
+                        textAlign: TextAlign.left),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GestureDetector(
+                        onTap: () async {
+                          _pageController.animateToPage(1,
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.bounceOut);
+                        },
+                        child: Text("Показать ",
+                            style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                            textAlign: TextAlign.left)),
+                  ],
+                ),
+              ),
               Expanded(
                 flex: 4,
                 child: Image.asset('assets/home/home-signal-icon.png',
@@ -303,47 +301,45 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                     fit: BoxFit.scaleDown),
               ),
               Expanded(
-                  flex: 4,
-                  child: Container(
-                    padding: EdgeInsets.only(left: 0, right: 20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Музей Михайлова В.С.",
-                          style: new TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.black87,
-                              fontWeight: FontWeight.w900,
-                              fontFamily: "Avenir"),
-                          textAlign: TextAlign.left,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                            "Советский и российский военачальник. Главнокомандующий Военно-воздушными силами Российской Федерации. Герой Российской Федерации, генерал армии, Заслуженный военный лётчик СССР.",
-                            style: TextStyle(color: Colors.black, fontSize: 11),
-                            textAlign: TextAlign.left),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        GestureDetector(
-                            onTap: () async {
-                              _pageController.animateToPage(2,
-                                  duration: Duration(milliseconds: 200),
-                                  curve: Curves.bounceOut);
-                            },
-                            child: Text("Показать",
-                                style: TextStyle(
-                                    color: Colors.blueAccent,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12),
-                                textAlign: TextAlign.left)),
-                      ],
+                flex: 4,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Музей Михайлова В.С.",
+                      style: new TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: "Avenir"),
+                      textAlign: TextAlign.left,
                     ),
-                  )),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                        "Советский и российский военачальник. Главнокомандующий Военно-воздушными силами Российской Федерации. Герой Российской Федерации, генерал армии, Заслуженный военный лётчик СССР.",
+                        style: TextStyle(color: Colors.black, fontSize: 11),
+                        textAlign: TextAlign.left),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GestureDetector(
+                        onTap: () async {
+                          _pageController.animateToPage(2,
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.bounceOut);
+                        },
+                        child: Text("Показать",
+                            style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                            textAlign: TextAlign.left)),
+                  ],
+                ),
+              ),
             ],
           )),
     ];
@@ -353,10 +349,43 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
   Widget build(BuildContext context) {
     // print(_items[0]["id"]);
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(children: getList())));
+        backgroundColor: Colors.blueGrey[45],
+        body: Column(children: [
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: Text(
+                  "Музей ВУЦ при РТУ МИРЭА",
+                  style: new TextStyle(
+                      fontSize: 28.0,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w900,
+                      fontFamily: "Avenir"),
+                ),
+              )
+            ],
+          ),
+          Expanded(
+              child: CustomScrollView(
+            primary: false,
+            slivers: <Widget>[
+              SliverPadding(
+                padding: const EdgeInsets.all(82),
+                sliver: SliverGrid.count(
+                  childAspectRatio: 1.8,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 1,
+                  children: getList(),
+                ),
+              ),
+            ],
+          )),
+        ]));
   }
 
   @override
