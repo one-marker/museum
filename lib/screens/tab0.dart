@@ -200,6 +200,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
           // },
 
           child: Row(
+
             children: <Widget>[
               Expanded(
                   flex: 4,

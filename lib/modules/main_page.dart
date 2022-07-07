@@ -32,8 +32,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final inactiveColor = Colors.grey;
-    final activeColor = Colors.red;
+    final inactiveColor = Colors.black38;
+    final activeColor = Color.fromRGBO(250, 0, 0, 50);
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
@@ -72,7 +72,7 @@ class _MainPageState extends State<MainPage> {
               inactiveColor: inactiveColor,
               activeColor: activeColor),
           BottomNavyBarItem(
-              title: Text('Музей войск связи '),
+              title: Text('Музей войск связи'),
               icon: Icon(Icons.radio),
               textAlign: TextAlign.center,
               inactiveColor: inactiveColor,
