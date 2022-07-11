@@ -12,6 +12,16 @@
     },
     {
       "id": "cover-signal-tablet.jpg",
+      "phone": "cover-museum-phone.png",
+      "tablet": "img-trailer-museum-tablet.png",
+      "background": "bg-cover-trailer-museum-tablet.jpg",
+      "description": "Книга посвящена истории Общевойсковой академии Вооруженных Сил Российской Федерации с 1832 по 2004 гг. Она разработана на основе архивных документов и материалов, многие из которых публикуются впервые.\r\nГод: 2004",
+      "name": "Книга \"История академии (1832-2004) в лицах\"",
+      "movie": "assets/movies/museumtrailer.mp4",
+      "color": "0XFF717a46"
+    },
+    {
+      "id": "cover-signal-tablet.jpg",
       "phone": "cover-signal-phone.jpg",
       "tablet": "img-signal-tablet.png",
       "background": "bg-signal-tablet.jpg",

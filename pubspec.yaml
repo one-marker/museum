@@ -81,6 +81,7 @@ flutter:
     - assets/plane/sample.json
     - assets/plane/img/
     - assets/movies/
+    - assets/movies/museumtrailer.mp4
     - assets/movies/mihamovie.mp4
     - assets/movies/plane.mp4
     - assets/movies/signal.mp4

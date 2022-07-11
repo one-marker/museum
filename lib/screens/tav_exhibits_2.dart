@@ -19,6 +19,9 @@ class Tab2Exhibits extends StatefulWidget {
   _Tab2ExhibitsState createState() => _Tab2ExhibitsState(_pageController);
 }
 
+/**
+ * Экспонаты из музея Михайлова
+ */
 class _Tab2ExhibitsState extends State<Tab2Exhibits> with AutomaticKeepAliveClientMixin<Tab2Exhibits> {
   List _items = [];
   PageController _pageController;

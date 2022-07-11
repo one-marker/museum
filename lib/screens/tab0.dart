@@ -190,9 +190,9 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
             ],
           )),
       Container(
-
+        color: Color.fromRGBO(95, 101, 54, 50),
           //height: MediaQuery.of(context).size.height - 250,
-          margin: const EdgeInsets.only(top: 0, left: 90, right: 90),
+         // margin: const EdgeInsets.only(top: 0, left: 90, right: 90),
           padding: const EdgeInsets.only(top: 0, left: 90, right: 90),
           // onTap: () async {
           //   _pageController.animateToPage(1,
@@ -205,7 +205,9 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
               Expanded(
                   flex: 4,
                   child: Container(
-                    margin: const EdgeInsets.all(20),
+                    color: Colors.white,
+                    padding: const EdgeInsets.all(50),
+                    margin: const EdgeInsets.all(50),
                     // color: Colors.white70,
                     child: GestureDetector(
                         onTap: () async {
@@ -213,14 +215,16 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                               duration: Duration(milliseconds: 200),
                               curve: Curves.bounceOut);
                         },
-                        child: Image.asset('assets/home/home-signal-icon.png',
+                        child: Image.asset('assets/home/home-signal.png',
                             fit: BoxFit.scaleDown)),
                   )),
               Expanded(
 
                 flex: 4,
                 child: Container(
-                  margin: const EdgeInsets.all(20),
+                  color: Colors.white,
+                  padding: const EdgeInsets.all(50),
+                  margin: const EdgeInsets.all(50),
                   // color: Colors.white70,
                   child: GestureDetector(
 
@@ -229,7 +233,8 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                           duration: Duration(milliseconds: 200),
                           curve: Curves.bounceOut);
                     },
-                    child: Image.asset('assets/home/home-plane-icon.png',
+                    child: Image.asset('assets/home/home-plane.png',
+                        width: 100,
                         fit: BoxFit.scaleDown)),
               )),
             ],
@@ -253,7 +258,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                         Text(
                           "Музей войск связи",
                           style: new TextStyle(
-                              fontSize: 20.0,
+                              fontSize: 30.0,
                               color: Colors.black87,
                               fontWeight: FontWeight.w900,
                               fontFamily: "Avenir"),
@@ -314,7 +319,7 @@ class _Tab0State extends State<Tab0> with AutomaticKeepAliveClientMixin<Tab0> {
                         Text(
                           "Музей Михайлова В.С.",
                           style: new TextStyle(
-                              fontSize: 20.0,
+                              fontSize: 30.0,
                               color: Colors.black87,
                               fontWeight: FontWeight.w900,
                               fontFamily: "Avenir"),

@@ -131,18 +131,6 @@ class _Tab2State extends State<Tab2> with SingleTickerProviderStateMixin<Tab2> {
                       fontFamily: "Avenir"),
                 ),
               ),
-              // Container(
-              //   margin: const EdgeInsets.only(right: 20),
-              //   child: Expanded(
-              //
-              //     child: Image.asset('assets/home/mus_icon2.webp',
-              //         width: 50,
-              //         fit: BoxFit.fitWidth),
-              //   ),
-              // ),
-
-
-
             ],
           ),
           Container(
